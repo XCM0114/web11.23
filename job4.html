@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轻音乐阅读夜 · Soft Music Reading</title>
+    <style>
+        /* 页面样式 */
+        .page {
+            display: inline-block;
+            background-color: #fefaf5;
+            box-shadow: 0 0 30px rgba(80, 58, 35, 0.25);
+            text-align: left;
+            max-width: 720px;
+            padding: 30px;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+        
+        /* 并集选择器 */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Microsoft YaHei', sans-serif;
+            color: #8B5A7C;
+            margin-bottom: 15px;
+        }
+        
+        /* 后代选择器 */
+        div table a {
+            text-decoration: none;
+            color: #7A4F6B;
+            font-weight: bold;
+        }
+        
+        /* 链接伪类 */
+        a:link {
+            color: #7A4F6B;
+        }
+        
+        a:visited {
+            color: #9B6B8D;
+        }
+        
+        a:hover {
+            color: #FF69B4;
+            text-decoration: underline;
+        }
+        
+        a:active {
+            color: #FF1493;
+        }
+        
+        /* ID选择器 */
+        p#intro {
+            font-weight: bold;
+            color: #D94D7A;
+            font-size: 1.1em;
+            background-color: #FFF0F5;
+            padding: 10px;
+            border-left: 4px solid #D94D7A;
+        }
+        
+        /* 带类名的链接 */
+        a.red {
+            color: #FF6B6B;
+            font-weight: bold;
+        }
+        
+        a.blue {
+            color: #4A90E2;
+            font-weight: bold;
+        }
+        
+        /* 伪元素 */
+        p::first-letter {
+            font-size: 1.5em;
+            color: #8B5A7C;
+            font-weight: bold;
+        }
+        
+        div.notice::first-line {
+            font-weight: bold;
+            color: #8B5A7C;
+        }
+        
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #E8B4C9;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #FFE6EE;
+            color: #8B5A7C;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #FFF5F9;
+        }
+        
+        /* 其他样式 */
+        body {
+            background-color: #FFE6EE;
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #5A5A5A;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #E8B4C9;
+        }
+        
+        .links {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        
+        .notice {
+            background-color: #FFF5F9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .status-reading {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .status-relaxing {
+            color: #FF9800;
+            font-weight: bold;
+        }
+        
+        .status-listening {
+            color: #2196F3;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 顶部标题区 -->
+        <div class="section">
+            <h1>轻音乐阅读夜 · Soft Music Reading</h1>
+        </div>
+        
+        <!-- 活动介绍区 -->
+        <div class="section">
+            <h2 id="intro">活动介绍</h2>
+            <p>在轻柔的音乐中，翻开书页，让心灵在文字与旋律间自由徜徉。轻音乐阅读夜是一个融合音乐与阅读的独特社团，我们相信，当优美的旋律遇见深邃的文字，会产生奇妙的化学反应。</p>
+            <p>无论你是喜欢古典钢琴的优雅，还是偏爱现代轻音乐的清新，在这里都能找到属于你的阅读节奏。我们每周举办阅读分享会，每月组织音乐欣赏夜，让阅读不再孤单，让音乐更有温度。</p>
+            <p id="intro">重要提示：首次参加活动的新成员可免费获得一本精选读物和一杯特调花茶，名额有限，请提前报名！</p>
+        </div>
+        
+        <!-- 活动报名信息表格区 -->
+        <div class="section">
+            <h3>近期活动安排</h3>
+            <table>
+                <tr>
+                    <th>活动日期</th>
+                    <th>活动主题</th>
+                    <th>阅读状态</th>
+                    <th>报名链接</th>
+                </tr>
+                <tr>
+                    <td>10月15日 19:00</td>
+                    <td>秋夜诗篇 · 钢琴与诗歌</td>
+                    <td class="status-reading">专注中</td>
+                    <td><a href="#">点击报名</a></td>
+                </tr>
+                <tr>
+                    <td>10月22日 18:30</td>
+                    <td>轻音乐中的文学漫步</td>
+                    <td class="status-relaxing">松弛中</td>
+                    <td><a href="#">点击报名</a></td>
+                </tr>
+                <tr>
+                    <td>10月29日 19:30</td>
+                    <td>弦乐四重奏与经典小说</td>
+                    <td class="status-listening">聆听中</td>
+                    <td><a href="#">点击报名</a></td>
+                </tr>
+                <tr>
+                    <td>11月5日 19:00</td>
+                    <td>新世纪音乐与散文之夜</td>
+                    <td class="status-reading">专注中</td>
+                    <td><a href="#">点击报名</a></td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- 页面链接区 -->
+        <div class="section">
+            <div class="links">
+                <a class="red" href="https://hongchenwusdnu.github.io/bookstore/job4.html" target="_blank">查看往期活动照片</a>
+                <a class="blue" href="job3.html" target="_blank">在线咨询活动详情</a>
+            </div>
+        </div>
+        
+        <!-- 底部公告区 -->
+        <div class="notice">
+            <p>社团活动地点：校园图书馆三楼音乐阅览室<br>
+            活动时间：每周五晚19:00-21:00<br>
+            咨询电话：123-4567-8910</p>
+            <p>新成员入会须知：请携带一本你最喜欢的书籍参加首次活动<br>
+            我们会根据书籍类型为你匹配相似阅读兴趣的伙伴</p>
+            <p>特别提醒：活动期间请将手机调至静音模式<br>
+            让我们共同营造沉浸式的阅读与音乐体验环境</p>
+        </div>
+    </div>
+</body>
+</html>

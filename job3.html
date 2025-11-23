@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吉他社招新 - 加入我们的音乐之旅</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .music-toggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .music-toggle:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+        
+        .music-toggle i {
+            font-size: 24px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #444;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background-color: #6a11cb;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        h2 {
+            color: #6a11cb;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .back-to-top {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 15px;
+            background-color: #6a11cb;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top:hover {
+            background-color: #2575fc;
+            transform: translateY(-2px);
+        }
+        
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .gallery-item {
+            flex: 1 1 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 12px 15px;
+            text-align: center;
+        }
+        
+        th {
+            background-color: #6a11cb;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .video-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        embed {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        form {
+            margin-top: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .form-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit {
+            background-color: #6a11cb;
+            color: white;
+        }
+        
+        .btn-submit:hover {
+            background-color: #2575fc;
+        }
+        
+        .btn-reset {
+            background-color: #f0f0f0;
+            color: #555;
+        }
+        
+        .btn-reset:hover {
+            background-color: #e0e0e0;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links li {
+                margin: 5px 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .gallery-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body id="top">
+    <!-- 音频元素 -->
+    <audio id="bg-music" loop>
+        <source src="guitar-theme.mp3" type="audio/mp3">
+        您的浏览器不支持音频元素。
+    </audio>
+    
+    <header>
+        <button class="music-toggle" id="music-toggle">
+            <i>♪</i>
+        </button>
+        <h1>弦动青春吉他社</h1>
+        <p class="subtitle">用音乐编织梦想，用琴弦连接你我</p>
+    </header>
+    
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#intro">社团简介</a></li>
+            <li><a href="#activities">活动安排</a></li>
+            <li><a href="#show">风采展示</a></li>
+            <li><a href="#stories">社员故事</a></li>
+            <li><a href="#signup">在线报名</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="intro" class="section">
+            <h2>社团简介</h2>
+            <p>弦动青春吉他社成立于2015年，是一个由热爱吉他、热爱音乐的大学生自发组织的音乐社团。我们致力于为校园内的吉他爱好者提供一个交流学习、展示才华的平台。</p>
+            <p>社团现有成员超过200人，包括初学者、进阶玩家和专业级吉他手。无论你是零基础的新手，还是经验丰富的吉他达人，都能在这里找到属于自己的一片天地。</p>
+            <p>我们定期组织吉他教学、音乐分享会、校园演出等活动，让成员们在轻松愉快的氛围中提升吉他技巧，结交志同道合的朋友。社团还拥有专业的排练室和齐全的设备，为成员们提供良好的练习环境。</p>
+            <p>在过去的几年里，我们参与了多次校内外的音乐节和文艺演出，获得了广泛好评。许多社员通过社团活动，不仅提升了音乐素养，还培养了团队协作能力和舞台表现力。</p>
+            <p>音乐无界限，吉他社欢迎所有对音乐怀有热情的同学加入。让我们一起用琴弦编织青春的旋律，用音乐点亮大学生活！</p>
+            <a href="#top" class="back-to-top">返回顶部</a>
+        </section>
+        
+        <section id="activities" class="section">
+            <h2>活动安排</h2>
+            <table>
+                <tr>
+                    <th colspan="4">吉他社 2025 年春季学期活动安排表</th>
+                </tr>
+                <tr>
+                    <th>活动名称</th>
+                    <th>时间</th>
+                    <th>地点</th>
+                    <th>备注</th>
+                </tr>
+                <tr>
+                    <td>新成员见面会</td>
+                    <td>3月15日 14:00-16:00</td>
+                    <td>学生活动中心302</td>
+                    <td>欢迎新成员，介绍社团情况</td>
+                </tr>
+                <tr>
+                    <td>吉他基础教学公开课</td>
+                    <td>3月22日 15:00-17:00</td>
+                    <td>学生活动中心302</td>
+                    <td>面向零基础学员</td>
+                </tr>
+                <tr>
+                    <td>和弦进阶训练</td>
+                    <td>4月5日 14:00-16:00</td>
+                    <td>音乐楼排练室</td>
+                    <td>需具备基础指法</td>
+                </tr>
+                <tr>
+                    <td>指弹技巧分享会</td>
+                    <td>4月19日 15:00-17:00</td>
+                    <td>学生活动中心302</td>
+                    <td>邀请校外指弹高手分享</td>
+                </tr>
+                <tr>
+                    <td>校园音乐节排练</td>
+                    <td>5月10日 全天</td>
+                    <td>音乐楼排练室</td>
+                    <td>为校园音乐节做准备</td>
+                </tr>
+                <tr>
+                    <td>春季音乐会</td>
+                    <td>5月24日 18:30-21:00</td>
+                    <td>学校大礼堂</td>
+                    <td>社团年度重要演出</td>
+                </tr>
+            </table>
+            <a href="#top" class="back-to-top">返回顶部</a>
+        </section>
+        
+        <section id="show" class="section">
+            <h2>风采展示</h2>
+            <p>以下是社团日常活动的一些精彩瞬间：</p>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <a href="club_intro.html">
+                        <img src="guitar-practice.jpg" alt="吉他社日常练习">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="club_intro.html">
+                        <img src="guitar-performance.jpg" alt="吉他社演出">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="club_intro.html">
+                        <img src="guitar-workshop.jpg" alt="吉他社教学活动">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="video-container">
+                <h3>社团宣传视频</h3>
+                <embed src="guitar-promo.mp4" width="640" height="360" type="video/mp4">
+            </div>
+            
+            <a href="#top" class="back-to-top">返回顶部</a>
+        </section>
+        
+        <section id="stories" class="section">
+            <h2>社员故事</h2>
+            <p>我叫李明，是大二计算机系的学生。一年前，我还是一个对吉他一无所知的"音乐小白"。偶然的机会，我路过学生活动中心，听到里面传来悠扬的吉他声，忍不住驻足聆听。那是我第一次接触吉他社。</p>
+            <p>刚开始学习吉他时，我的手指总是按不紧琴弦，弹出的声音断断续续，连最简单的《小星星》都弹不好。好几次我都想放弃，觉得自己的手指太笨拙，不适合弹吉他。但社团的学长学姐们非常耐心，他们一遍遍地纠正我的指法，教我如何放松手腕，如何用最小的力气按出最清晰的声音。</p>
+            <p>记得有一次练习，我的手指磨出了水泡，疼得几乎无法继续。社长发现了我的困境，不仅帮我处理了伤口，还分享了他初学时的经历："每个吉他手的手指都经历过这样的磨练，这是成长的印记。"这句话给了我很大的鼓励。</p>
+            <p>三个月后，我学会了第一首完整的歌曲《童年》。当我在社团的小型分享会上演奏时，虽然还有些紧张，指法也不够完美，但听到大家的掌声，那种成就感是前所未有的。从那时起，我真正爱上了吉他，也爱上了这个温暖的集体。</p>
+            <p>现在，我已经能够熟练地弹奏许多歌曲，还开始尝试自己编曲。吉他不仅成了我大学生活中不可或缺的一部分，更让我结识了一群志同道合的朋友。我们一起排练，一起演出，一起在星空下弹唱，这些都将成为我大学生涯最珍贵的回忆。</p>
+            <p>如果你也对吉他感兴趣，不要犹豫，加入我们吧！无论你是零基础还是有一定经验，吉他社都会为你提供一个展示自我、提升技能的平台。让我们一起用音乐书写青春的故事！</p>
+            <a href="#top" class="back-to-top">返回顶部</a>
+        </section>
+        
+        <section id="signup" class="section">
+            <h2>在线报名</h2>
+            <p>填写以下信息，加入弦动青春吉他社：</p>
+            
+            <form>
+                <table>
+                    <tr>
+                        <td><label for="name">姓名：</label></td>
+                        <td><input type="text" id="name" name="name" required></td>
+                    </tr>
+                    <tr>
+                        <td><label>性别：</label></td>
+                        <td>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="male" name="gender" value="male" required>
+                                    <label for="male">男</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="female" name="gender" value="female">
+                                    <label for="female">女</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="birthdate">出生日期：</label></td>
+                        <td><input type="text" id="birthdate" name="birthdate" placeholder="年-月-日" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="phone">手机：</label></td>
+                        <td><input type="text" id="phone" name="phone" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">邮箱：</label></td>
+                        <td><input type="email" id="email" name="email" required></td>
+                    </tr>
+                    <tr>
+                        <td><label>是否有吉他基础：</label></td>
+                        <td>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="basic-yes" name="basic" value="yes" required>
+                                    <label for="basic-yes">是</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="basic-no" name="basic" value="no">
+                                    <label for="basic-no">否</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>兴趣方向：</label></td>
+                        <td>
+                            <div class="checkbox-group">
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="interest1" name="interest" value="fingerstyle">
+                                    <label for="interest1">指弹</label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="interest2" name="interest" value="accompaniment">
+                                    <label for="interest2">弹唱伴奏</label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="interest3" name="interest" value="electric">
+                                    <label for="interest3">电吉他</label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="interest4" name="interest" value="classical">
+                                    <label for="interest4">古典吉他</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="grade">年级：</label></td>
+                        <td>
+                            <select id="grade" name="grade" required>
+                                <option value="">请选择</option>
+                                <option value="freshman">大一</option>
+                                <option value="sophomore">大二</option>
+                                <option value="junior">大三</option>
+                                <option value="senior">大四</option>
+                                <option value="graduate">研究生</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="intro">自我介绍：</label></td>
+                        <td>
+                            <textarea id="intro" name="intro" placeholder="请简单介绍自己、以及加入吉他社的理由......"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>是否服从活动安排：</label></td>
+                        <td>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="arrange-yes" name="arrange" value="yes" required>
+                                    <label for="arrange-yes">是</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="arrange-no" name="arrange" value="no">
+                                    <label for="arrange-no">否</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="form-buttons">
+                                <button type="submit" class="btn btn-submit">提交申请</button>
+                                <button type="reset" class="btn btn-reset">重置表单</button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            
+            <a href="#top" class="back-to-top">返回顶部</a>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>弦动青春吉他社 &copy; 2025 版权所有</p>
+            <p>联系我们: guitar_club@university.edu | 电话: 123-4567-8910</p>
+            <p>地址: 大学城学生活动中心302室</p>
+        </div>
+    </footer>
+    
+    <script>
+        // 背景音乐控制
+        const musicToggle = document.getElementById('music-toggle');
+        const bgMusic = document.getElementById('bg-music');
+        let isPlaying = false;
+        
+        musicToggle.addEventListener('click', function() {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicToggle.innerHTML = '<i>♪</i>';
+            } else {
+                bgMusic.play();
+                musicToggle.innerHTML = '<i>♫</i>';
+            }
+            isPlaying = !isPlaying;
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
